@@ -3,7 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const defaultOptions = {
-    ttl: 3600
+    ttl: 3600,
+    unref: false,
 };
 class Stealer {
     constructor(options = {}) {
@@ -12,7 +13,12 @@ class Stealer {
         this.stealerInterval = setInterval(() => {
             this.steal();
         }, this.options.ttl * 500);
-        this.stealerInterval.unref();
+        if (this.options.unref)
+            this.stealerInterval.unref();
+    }
+    destroy() {
+        this.stealerInterval.unref;
+        clearInterval(this.stealerInterval);
     }
     set(key, value) {
         this.keyValues.set(key, { marked: false, value });
