@@ -1,6 +1,6 @@
 {
   "name": "stealer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A stealer style, very simple cache",
   "main": "index.js",
   "scripts": {
