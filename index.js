@@ -13,7 +13,7 @@ class Stealer {
         this.stealerInterval = setInterval(() => {
             this.steal();
         }, this.options.ttl * 500);
-        if (this.options.unref)
+        if (this.options.unref && typeof this.stealerInterval.unref == "function")
             this.stealerInterval.unref();
     }
     destroy() {

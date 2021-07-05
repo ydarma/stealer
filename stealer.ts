@@ -18,7 +18,8 @@ export class Stealer<K,V> {
     this.stealerInterval = setInterval(() => {
       this.steal();
     }, this.options.ttl * 500);
-    if(this.options.unref) this.stealerInterval.unref();
+    if(this.options.unref && typeof this.stealerInterval.unref == "function")
+      this.stealerInterval.unref();
   }
   
   destroy(): void {
