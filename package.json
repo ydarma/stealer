@@ -1,0 +1,29 @@
+{
+  "name": "stealer",
+  "version": "1.0.0",
+  "description": "A stealer style, very simple cache",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/tape -r ts-node/register/transpile-only **/*.test.ts",
+    "build": "./node_modules/.bin/rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ydarma/stealer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ydarma/stealer/issues"
+  },
+  "homepage": "https://github.com/ydarma/stealer#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@types/tape": "^4.13.1",
+    "@wessberg/rollup-plugin-ts": "^1.3.14",
+    "rollup": "^2.52.7",
+    "tape": "^5.2.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5"
+  }
+}
