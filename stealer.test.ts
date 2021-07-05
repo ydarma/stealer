@@ -82,3 +82,12 @@ test("Check value existence returns false after ttl", async t => {
   stealer.destroy();
   t.end();
 });
+
+test("Delete an item from stealer", async t => {
+  const stealer = new Stealer<string, unknown>({ ttl: 2 });
+  stealer.set("test", {});
+  stealer.delete("test");
+  t.false(stealer.has("test"));
+  stealer.destroy();
+  t.end();
+});

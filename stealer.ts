@@ -41,6 +41,10 @@ export class Stealer<K,V> {
     return typeof this.get(key) != "undefined";
   }
   
+  delete(key: K) {
+    this.keyValues.delete(key);
+  }
+  
   private steal(): void {
     for(const [k, v] of this.keyValues.entries()) {
       this.stealOrMark(v, k);

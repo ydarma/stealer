@@ -33,6 +33,9 @@ class Stealer {
     has(key) {
         return typeof this.get(key) != "undefined";
     }
+    delete(key) {
+        this.keyValues.delete(key);
+    }
     steal() {
         for (const [k, v] of this.keyValues.entries()) {
             this.stealOrMark(v, k);

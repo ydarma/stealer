@@ -14,6 +14,7 @@ declare class Stealer<K, V> {
     set(key: K, value: V): void;
     get(key: K): V | undefined;
     has(key: K): boolean;
+    delete(key: K): void;
     private steal;
     private stealOrMark;
 }
