@@ -12,9 +12,7 @@ class Stealer {
         this.stealerInterval = setInterval(() => {
             this.steal();
         }, this.options.ttl * 500);
-    }
-    destroy() {
-        clearInterval(this.stealerInterval);
+        this.stealerInterval.unref();
     }
     set(key, value) {
         this.keyValues.set(key, { marked: false, value });

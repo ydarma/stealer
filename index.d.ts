@@ -9,7 +9,6 @@ declare class Stealer<K, V> {
     readonly options: StealerOptions;
     private readonly stealerInterval;
     constructor(options?: Partial<StealerOptions>);
-    destroy(): void;
     set(key: K, value: V): void;
     get(key: K): V | undefined;
     has(key: K): boolean;

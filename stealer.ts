@@ -1,9 +1,11 @@
 type StealerOptions = {
-  ttl: number
+  ttl: number;
+  unref: boolean;
 }
 
 const defaultOptions: StealerOptions = {
-  ttl: 3600
+  ttl: 3600,
+  unref: false,
 };
 
 export class Stealer<K,V> {
@@ -16,9 +18,11 @@ export class Stealer<K,V> {
     this.stealerInterval = setInterval(() => {
       this.steal();
     }, this.options.ttl * 500);
+    if(this.options.unref) this.stealerInterval.unref();
   }
   
   destroy(): void {
+    this.stealerInterval.unref
     clearInterval(this.stealerInterval);
   }
   

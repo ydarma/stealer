@@ -3,10 +3,9 @@ import { Stealer } from "./stealer";
 
 
 test("Seen flag initialized to false", t => {
-  const stealer = new Stealer<string, unknown>({ ttl: 2 });
+  const stealer = new Stealer<string, unknown>({ ttl: 2, unref: true });
   stealer.set("test", {});
   t.false(stealer.keyValues.get("test")?.marked);
-  stealer.destroy();
   t.end();
 });
 
