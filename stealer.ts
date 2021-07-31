@@ -39,7 +39,7 @@ export class Stealer<K,V> {
   }
   
   has(key: K): boolean {
-    return typeof this.get(key) != "undefined";
+    return this.keyValues.has(key);
   }
   
   delete(key: K) {
