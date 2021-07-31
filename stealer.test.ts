@@ -12,7 +12,7 @@ test("Seen flag initialized to false", t => {
 test("Seen flag is set to true by stealer", async t => {
   const stealer = new Stealer<string, unknown>({ ttl: 2 });
   stealer.set("test", {});
-  await new Promise(r => setTimeout(r, 1000));
+  await new Promise(r => setTimeout(r, 2000));
   t.true(stealer.keyValues.get("test")?.marked);
   stealer.destroy();
   t.end();
@@ -21,7 +21,7 @@ test("Seen flag is set to true by stealer", async t => {
 test("Value is stolen after ttl", async t => {
   const stealer = new Stealer<string, unknown>({ ttl: 2 });
   stealer.set("test", {});
-  await new Promise(r => setTimeout(r, 2500));
+  await new Promise(r => setTimeout(r, 5000));
   t.false(stealer.keyValues.has("test"));
   stealer.destroy();
   t.end();
@@ -50,7 +50,7 @@ test("Get unmark value", async t => {
 test("Get return undefined after ttl", async t => {
   const stealer = new Stealer<string, unknown>({ ttl: 2 });
   stealer.set("test", {});
-  await new Promise(r => setTimeout(r, 2500));
+  await new Promise(r => setTimeout(r, 5000));
   t.false(stealer.get("test"));
   stealer.destroy();
   t.end();
@@ -77,7 +77,7 @@ test("Check value existence unmark value", async t => {
 test("Check value existence returns false after ttl", async t => {
   const stealer = new Stealer<string, unknown>({ ttl: 2 });
   stealer.set("test", {});
-  await new Promise(r => setTimeout(r, 2500));
+  await new Promise(r => setTimeout(r, 5000));
   t.false(stealer.has("test"));
   stealer.destroy();
   t.end();

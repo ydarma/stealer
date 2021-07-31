@@ -17,7 +17,7 @@ export class Stealer<K,V> {
     this.options = {...defaultOptions, ...options }
     this.stealerInterval = setInterval(() => {
       this.steal();
-    }, this.options.ttl * 500);
+    }, this.options.ttl * 1000);
     if(this.options.unref && typeof this.stealerInterval.unref == "function")
       this.stealerInterval.unref();
   }
